@@ -23,7 +23,7 @@ __license__ = 'MIT'
 __version__ = '1.0.0'
 ABS_STATIC_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'static')
 ALL_RESOURCES = get_resources(minify=False)
-ALL_VARIABLES = sorted(ALL_RESOURCES.keys(), key=priority)
+ALL_VARIABLES = sorted(list(ALL_RESOURCES.keys()), key=priority)
 ALL_RESOURCES_MINIFIED = get_resources(minify=True)
 
 

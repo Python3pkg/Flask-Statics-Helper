@@ -20,7 +20,7 @@ def test_minify():
     statics.init_app(app)
     assert False == app.config['STATICS_MINIFY']
 
-    all_files = set([f for r in statics.all_resources.values() for f in r['css'] + r['js']])
+    all_files = set([f for r in list(statics.all_resources.values()) for f in r['css'] + r['js']])
     assert 0 == len([f for f in all_files if '.min.' in f])
     assert 27 == len(all_files)
 
@@ -30,7 +30,7 @@ def test_minify():
     statics.init_app(app)
     assert True == app.config['STATICS_MINIFY']
 
-    all_files = set([f for r in statics.all_resources.values() for f in r['css'] + r['js']])
+    all_files = set([f for r in list(statics.all_resources.values()) for f in r['css'] + r['js']])
     assert 22 == len([f for f in all_files if '.min.' in f])
     assert 27 == len(all_files)
 

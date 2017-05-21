@@ -10,8 +10,8 @@ def test_priority():
 def test_get_resources(all_files_both):
     all_resources = get_resources()
     all_resources_minified = get_resources(minify=True)
-    assert all_resources.keys() == all_resources_minified.keys()
-    assert all_resources.values() != all_resources_minified.values()
+    assert list(all_resources.keys()) == list(all_resources_minified.keys())
+    assert list(all_resources.values()) != list(all_resources_minified.values())
 
     all_files, all_files_minified = all_files_both
     assert all('.min.' not in f for f in all_files)

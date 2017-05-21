@@ -29,6 +29,6 @@ def template():
 @pytest.fixture(scope='session')
 def all_files_both():
     """Get a set of all files for non-minified and minified resources."""
-    all_files = set([f for r in ALL_RESOURCES.values() for f in r['css'] + r['js']])
-    all_files_minified = set([f for r in ALL_RESOURCES_MINIFIED.values() for f in r['css'] + r['js']])
+    all_files = set([f for r in list(ALL_RESOURCES.values()) for f in r['css'] + r['js']])
+    all_files_minified = set([f for r in list(ALL_RESOURCES_MINIFIED.values()) for f in r['css'] + r['js']])
     return all_files, all_files_minified

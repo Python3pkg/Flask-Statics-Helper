@@ -6,7 +6,7 @@ from linecache import getline
 import os
 import re
 try:
-    from urllib2 import urlopen
+    from urllib.request import urlopen
 except ImportError:
     from urllib.request import urlopen  # PY3
 

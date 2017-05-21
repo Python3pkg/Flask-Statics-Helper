@@ -40,7 +40,7 @@ def test_files_reachable_from_template(minify):
     app.config['STATICS_MINIFY'] = minify
     Statics(app)
     all_resources = ((k, set(v['css']), set(v['js']))
-                     for k, v in app.extensions['statics'].statics.all_resources.items())
+                     for k, v in list(app.extensions['statics'].statics.all_resources.items()))
     assert minify == app.config['STATICS_MINIFY']
 
     # Test.
